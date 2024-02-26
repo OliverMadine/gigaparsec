@@ -165,7 +165,11 @@ test-suite gigaparsec-test
                    Text.Gigaparsec.Token.NamesTests,
                    Text.Gigaparsec.Internal.Test,
                    Text.Gigaparsec.Internal.TestError,
-                   Text.Gigaparsec.Internal.PlainString
+                   Text.Gigaparsec.Internal.PlainString,
+                   Text.Gigaparsec.Internal.Fuzzing.CombinatorAST,
+                   Text.Gigaparsec.Internal.Fuzzing.ParsecAST,
+                   Text.Gigaparsec.Internal.Fuzzing.TestProperty,
+                   Text.Gigaparsec.Internal.Fuzzing.Compiler,
 
     ghc-options: -Wno-missing-export-lists -Wno-missing-safe-haskell-mode -Wno-safe
                  -Wno-missing-import-lists -Wno-all-missed-specialisations -Wno-type-defaults
@@ -190,9 +194,7 @@ test-suite gigaparsec-test
         tasty >=1.1 && <1.6,
         tasty-expected-failure >=0.11 && <0.13,
         tasty-hunit >=0.9 && <0.11,
-        --TODO: property based testing will be useful when we optimise combinators
-        --      to test against their base implementations
-        --tasty-quickcheck
+        tasty-quickcheck,
         --TODO: performance testing with tasty-bench?
         --tasty-bench
         -- we'd need to keep the basefile files somewhere, cache in CI or keep in repo?
